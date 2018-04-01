@@ -14,9 +14,9 @@ void SensorRGB::getRGBColor() {
   _tcs.setInterrupt(true);
   
   // Convert the values obtained to valid RGB values (0-255)
-  _red = _r; _red /= _c; _red *= 256;
-  _green = _g; _green /= _c; _green *= 256;
-  _blue = _b; _blue /= _c; _blue *= 256;
+  _red = _r; _red /= _c; _red *= 255;
+  _green = _g; _green /= _c; _green *= 255;
+  _blue = _b; _blue /= _c; _blue *= 255;
 }  // void getRGBColor()
 
 uint16_t SensorRGB::Red(){
