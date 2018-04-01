@@ -29,9 +29,9 @@ void loop() {
   Serial.print("Detected color: ");
   
   // Displays the RGB composition of the detected color
-  Serial.print(" | R:"); Serial.print(rgb.Red());
-  Serial.print(" - G:"); Serial.print(rgb.Green());
-  Serial.print(" - B:"); Serial.print(rgb.Blue());
+  Serial.print(" | R:"); Serial.print(rgb.red());
+  Serial.print(" - G:"); Serial.print(rgb.green());
+  Serial.print(" - B:"); Serial.print(rgb.blue());
   Serial.println("");
   delay(300);
 }  // void loop()
@@ -43,11 +43,11 @@ Method | Description
 ------ | -----------
 begin() | Initialize the TCS34725 sensor
 getRGBColor() | Do the reading
-Red() | Red value read
-Green() | Green value read
-Blue() | Blue value read
-Clear() | Clear value read
-Diff(r, g, b) | Calculate the Euclidean distance of the detected color with the color RGB passed as a parameter
+red() | Red value read
+green() | Green value read
+blue() | Blue value read
+clear() | Clear value read
+diff(r, g, b) | Calculate the Euclidean distance of the detected color with the color RGB passed as a parameter
 
 ## License
 Released under **MIT License**
