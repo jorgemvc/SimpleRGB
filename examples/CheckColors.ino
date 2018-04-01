@@ -1,5 +1,13 @@
-// ---- Bibliotecas
-#include "SensorRGB.h"
+/** @file    CheckColors
+ *  @author  Jorge Villalobos Carvajal (jorgemvc@gmail.com)
+ *  @date    16.Jun.2017  
+ *  @version 1.0 
+ *  
+ *  @brief   How to use the library SensorRGB.
+ *
+ *  @licence  MIT License
+ */// ---- Bibliotecas
+#include <SensorRGB.h>
 
 // ---- Variables
 SensorRGB rgb;
@@ -15,34 +23,34 @@ uint16_t defColores[7][3] = {
 };
 // Nombre correspondiente de los colores definidos
 String colores[7] = {
-  "Rojo",
-  "Verde",
-  "Azul",
-  "Amarillo",
-  "Negro",
-  "Blanco",
-  "Naranja"
+  "Red",
+  "Green",
+  "Blue",
+  "Yellow",
+  "Black",
+  "White",
+  "Orange"
 };
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Sensor RGB");
+  Serial.println("Simple RGB");
   Serial.println("Jorge Villalobos C. - v1.0 - Jun.2017");
   Serial.println("");
 
   // Inicialización del sensor RGB
-  Serial.println(rgb.inicio() ? "Sensor RGB encontrado": "Sensor RGB NO encontrado");
+  Serial.println(rgb.inicio() ? "Sensor TCS34725 found": "TCS34725 Sensor NOT FOUND !!!");
 }  // void setup();
 
 void loop() {
-  // Realiza la lectura
+  // Do the color reading
   rgb.getRGBColor();
-  Serial.print("Color detectado: ");
+  Serial.print("Detected color: ");
   
-  // Determina por aproximacion el color
+  // Determine the color by approximation
   Serial.print(getColor());
   
-  // Despliega la composicion RGB del color detectado
+  // Displays the RGB composition of the detected color
   Serial.print(" | R:"); Serial.print(rgb.Red());
   Serial.print(" - G:"); Serial.print(rgb.Green());
   Serial.print(" - B:"); Serial.print(rgb.Blue());
@@ -55,9 +63,9 @@ String getColor() {
   int dist = 10000,
       aux;
   
-  // Calcula la distancia entre el color detectado y los
-  // diferentes colores definidos, el que tenga menor distancia
-  // sera el elegido.
+  // Calculate the distance between the detected color and the 
+  // different defined colors, the one with the shortest distance
+  // will be the chosen one.
   for (int i = 0 ; i < 7 ; i++) {
     aux = rgb.Diff(defColores[i][0], defColores[i][1], defColores[i][2]);
     if (aux < dist) {
