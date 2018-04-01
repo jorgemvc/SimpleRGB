@@ -1,3 +1,13 @@
+/** @file    SimpleRGB.cpp
+ *  @author  Jorge Villalobos Carvajal (jorgemvc@gmail.com)
+ *  @date    16.Jun.2017  
+ *  @version 1.0 
+ *  
+ *  @requires  Adafruit_TCS34725 library installed.
+ *  @brief   Libray for simplify use of Adafruit TCS34725.
+ *
+ *  @licence  MIT License
+ */
 #include "SensorRGB.h"
 //                [ ---- Constructor ---- ]
 SensorRGB::SensorRGB(){};
@@ -19,26 +29,26 @@ void SensorRGB::getRGBColor() {
   _blue = _b; _blue /= _c; _blue *= 255;
 }  // void getRGBColor()
 
-uint16_t SensorRGB::Red(){
+uint16_t SensorRGB::red(){
   return (uint16_t)_red;
-}  // uint16_t Red()
+}  // uint16_t red()
 
-uint16_t SensorRGB::Green(){
+uint16_t SensorRGB::green(){
   return (uint16_t)_green;
-}  // uint16_t Green()
+}  // uint16_t green()
 
-uint16_t SensorRGB::Blue(){
+uint16_t SensorRGB::blue(){
   return (uint16_t)_blue;
-}  // uint16_t Blue()
+}  // uint16_t blue()
 
-uint16_t SensorRGB::Clear(){
+uint16_t SensorRGB::clear(){
   return _c;
-}  // uint16_t Clear()
+}  // uint16_t clear()
 
 // ---- Calculate the Euclidean distance of the detected color 
 //      with the color RGB passed as a parameter
-float SensorRGB::Diff(
+float SensorRGB::diff(
   uint16_t r, uint16_t g, uint16_t b
 ) {
   return sqrt( sq(_red - r) + sq(_green - g) + sq(_blue - b));  
-} // float Diff()
+} // float diff()
